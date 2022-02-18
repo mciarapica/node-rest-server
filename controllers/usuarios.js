@@ -1,4 +1,4 @@
-const res = require('Express').response;
+const res = require('express').response;
 
 
 const usuariosGet = (req, res) => {
