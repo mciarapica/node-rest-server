@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const DataBase = require('../database/config.js');
 
 
 class Server {
@@ -8,10 +9,19 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.usuariosPath = '/api/usuarios';
+        this.database();
         this.milddelwares();
         this.routes();
     }
 
+    async database() {
+        
+        //instancio la conexion con la db
+        const db = new DataBase();
+        await db.conectar();
+    }
+    
+    
     milddelwares() {
         //Para publicar archivos
         this.app.use(express.static('public'));
