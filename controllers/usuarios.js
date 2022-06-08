@@ -90,10 +90,12 @@ const usuariosPost =  async (req, res) => {
     try {
         //Baja lógica
         const usuario = await Usuario.findByIdAndUpdate(id,{eliminado:true});
+        const usuarioAutenticado = req.usuario; 
 
         //respuesta exitosa
         res.json({
-            usuario
+            usuario: usuario,
+            usuarioAutenticado: usuarioAutenticado
         })
 
     } catch (error) {
