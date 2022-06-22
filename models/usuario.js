@@ -24,7 +24,8 @@ const SchemaUsuario = Schema(
 
         rol: {
             type: String,
-            required: true
+            required: true,
+            default: 'USER_ROLE'
         }, 
 
         eliminado: {
